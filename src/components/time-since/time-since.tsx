@@ -2,7 +2,7 @@ import { Component, Prop, State, Watch, Host, h } from '@stencil/core';
 
 @Component({
   tag: 'time-since',
-  styleUrl: 'time-since.css',
+  styleUrl: 'time-since.scss',
   shadow: true
 })
 export class TimeSince {
