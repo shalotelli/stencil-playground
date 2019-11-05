@@ -51,7 +51,10 @@ export class TimeSince {
   render() {
     return (
       <Host>
-        {this.timestamp && <div>{this.displayValue} {this.unit}{this.displayValue !== 1 ? 's' : ''} ago</div>}
+        {this.displayValue < 1 ?
+          <div>just now</div> :
+          <div>{this.displayValue} {this.unit}{this.displayValue !== 1 ? 's' : ''} ago</div>
+        }
       </Host>
     );
   }
