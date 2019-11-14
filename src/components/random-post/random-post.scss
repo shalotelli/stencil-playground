@@ -10,6 +10,10 @@
   font-family: Helvetica, sans-serif;
 }
 
+:host(.remove) {
+  display: none;
+}
+
 .header {
   display: flex;
   align-items: center;
@@ -23,6 +27,20 @@
 
   .username {
     font-weight: bold;
+  }
+}
+
+.close {
+  text-align: right;
+  text-decoration: none;
+  flex: 1;
+  height: 50px;
+  color: #aaa;
+  font-size: 1.2em;
+  font-weight: 200;
+
+  &:hover {
+    color: #333;
   }
 }
 

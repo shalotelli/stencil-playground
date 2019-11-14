@@ -1,4 +1,12 @@
-import { Component, Host, h, Element } from '@stencil/core';
+import {
+  Component,
+  Host,
+  h,
+  Element,
+  Method,
+  Event,
+  EventEmitter
+} from '@stencil/core';
 
 @Component({
   tag: 'random-post',
@@ -6,6 +14,7 @@ import { Component, Host, h, Element } from '@stencil/core';
   shadow: true
 })
 export class RandomPost {
+  @Event() postRemoved: EventEmitter;
   @Element() el: HTMLElement;
   content: any;
 
@@ -34,12 +43,21 @@ export class RandomPost {
     }, 1000);
   }
 
+  @Method()
+  removePost() {
+    this.el.classList.add('remove');
+    this.postRemoved.emit();
+    return Promise.resolve();
+  }
+
   render() {
     return (
       <Host>
+
         <div class="header">
           <img src="https://placeimg.com/300/300/animals" />
           <div class="username">{this.content.name}</div>
+          <a href="#" class="close" onClick={() => this.removePost()}>&times;</a>
         </div>
 
         <div class="content">{this.content.body}</div>

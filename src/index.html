@@ -10,5 +10,20 @@
   </head>
   <body>
     <random-post></random-post>
+
+    <button class="remove-post-btn" onclick="removePost()">Remove Post</button>
+
+    <script>
+      const post = document.querySelector('random-post');
+      const removeBtn = document.querySelector('.remove-post-btn');
+
+      function removePost() {
+        post.removePost();
+      }
+
+      post.addEventListener('postRemoved', () => {
+        removeBtn.disabled = true;
+      })
+    </script>
   </body>
 </html>

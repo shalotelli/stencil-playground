@@ -24,7 +24,9 @@ export namespace Components {
     */
     'middle': string;
   }
-  interface RandomPost {}
+  interface RandomPost {
+    'removePost': () => Promise<void>;
+  }
   interface TimeSince {
     'timestamp': Date;
     'unit': string;
@@ -73,7 +75,9 @@ declare namespace LocalJSX {
     */
     'middle'?: string;
   }
-  interface RandomPost {}
+  interface RandomPost {
+    'onPostRemoved'?: (event: CustomEvent<any>) => void;
+  }
   interface TimeSince {
     'timestamp'?: Date;
     'unit'?: string;
